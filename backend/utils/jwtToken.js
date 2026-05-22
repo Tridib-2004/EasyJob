@@ -8,7 +8,7 @@ const cookieExpire = Number(process.env.COOKIE_EXPIRE) || 7;
             Date.now() + cookieExpire * 24 * 60 * 60 * 1000
         ),
         httpOnly: true,
-       sameSite: "None",
+       sameSite: "none",
        secure: true      // ✅ MUST be false in localhost (http)
     };
   
