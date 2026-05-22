@@ -97,7 +97,7 @@ const userSlice=createSlice({
 export const register=(data)=>async(dispatch)=>{
     dispatch(userSlice.actions.registerRequest());
     try{
-     const response=await axios.post("http://localhost:4000/user/register",data,
+     const response=await axios.post("https://easyjob-vcsa.onrender.com/user/register",data,
         {withCredentials: true,
         headers: {
             "Content-Type": "multipart/form-data",
@@ -118,7 +118,7 @@ export const login = (data) => async (dispatch) => {
   dispatch(userSlice.actions.loginRequest());
   try {
     const response = await axios.post(
-      "http://localhost:4000/user/login",
+      "https://easyjob-vcsa.onrender.com/user/login",
       data,
       {
         withCredentials: true,
@@ -137,7 +137,7 @@ export const getUser = () => async (dispatch) => {
   dispatch(userSlice.actions.fetchUserRequest());
   try {
     const response = await axios.get(
-      "http://localhost:4000/user/getallusers",
+      "https://easyjob-vcsa.onrender.com/user/getallusers",
       {
         withCredentials: true,
       }
@@ -152,7 +152,7 @@ export const getUser = () => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   try {
     const response = await axios.get(
-      "http://localhost:4000/user/logout",
+      "https://easyjob-vcsa.onrender.com/user/logout",
       {
         withCredentials: true,
       }

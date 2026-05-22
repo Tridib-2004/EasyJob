@@ -107,7 +107,7 @@ const jobsSlice=createSlice({
 export const fetchJobs=(city,niche,searchKeyword = "")=>async(dispatch)=>{
    try{
     dispatch(jobsSlice.actions.requestForAllJobs());
-    let link="http://localhost:4000/job/getall?";
+    let link="https://easyjob-vcsa.onrender.com/job/getall?";
     let queryParams=[];
     if(searchKeyword){
         queryParams.push(`searchKeyword=${searchKeyword}`);
@@ -132,7 +132,7 @@ export const fetchJobs=(city,niche,searchKeyword = "")=>async(dispatch)=>{
 export const fetchSingleJob=(jobId)=>async(dispatch)=>{
     try{
         dispatch(jobsSlice.actions.requestForSingleJob());
-        const response=await axios.get(`http://localhost:4000/job/get/${jobId}`,{withCredentials: true});
+        const response=await axios.get(`https://easyjob-vcsa.onrender.com/job/get/${jobId}`,{withCredentials: true});
         dispatch(jobsSlice.actions.successForSingleJob(response.data.job));
     }catch(error){
         dispatch(jobsSlice.actions.failureForSingleJob(error.response?.data?.message || error.message));
@@ -145,7 +145,7 @@ export const postJob = (data) => async (dispatch) => {
   dispatch(jobsSlice.actions.requestForPostJob());
   try {
     const response = await axios.post(
-      `http://localhost:4000/job/postjob`,
+      `https://easyjob-vcsa.onrender.com/job/postjob`,
       data,
       { withCredentials: true, headers: { "Content-Type": "application/json" } }
     );
@@ -162,7 +162,7 @@ export const deleteJob = (id) => async (dispatch) => {
   dispatch(jobsSlice.actions.requestForDeleteJob());
   try {
     const response = await axios.delete(
-      `http://localhost:4000/job/delete/${id}`,
+      `https://easyjob-vcsa.onrender.com/job/delete/${id}`,
       { withCredentials: true }
     );
     dispatch(jobsSlice.actions.successForDeleteJob(response.data.message));
@@ -176,7 +176,7 @@ export const getMyJobs = () => async (dispatch) => {
   dispatch(jobsSlice.actions.requestForMyJobs());
   try {
     const response = await axios.get(
-      `http://localhost:4000/job/getmyjobs`,
+      `https://easyjob-vcsa.onrender.com/job/getmyjobs`,
       { withCredentials: true }
     );
     dispatch(jobsSlice.actions.successForMyJobs(response.data.myJobs));

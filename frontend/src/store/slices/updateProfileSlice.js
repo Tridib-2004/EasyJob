@@ -47,7 +47,7 @@ export const updateProfile = (data) => async (dispatch) => {
   dispatch(updateProfileSlice.actions.updateProfileRequest());
   try {
     const response = await axios.put(
-      "http://localhost:4000/user/updateuser",
+      "https://easyjob-vcsa.onrender.com/user/updateuser",
       data,
       {
         withCredentials: true,
@@ -67,7 +67,7 @@ export const updatePassword = (data) => async (dispatch) => {
   dispatch(updateProfileSlice.actions.updatePasswordRequest());
   try {
     const response = await axios.put(
-      "http://localhost:4000/user/updatepassword",
+      "https://easyjob-vcsa.onrender.com/user/updatepassword",
       data,
       {
         withCredentials: true,

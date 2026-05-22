@@ -90,7 +90,7 @@ const applicationSlice = createSlice({
 export const postApplication=(data,jobId)=>async(dispatch)=>{
     dispatch(applicationSlice.actions.requestForPostApplication());
    try{
-    const response=await axios.post(`http://localhost:4000/application/post/${jobId}`,data,{withCredentials: true,headers: {
+    const response=await axios.post(`https://easyjob-vcsa.onrender.com/application/post/${jobId}`,data,{withCredentials: true,headers: {
         "Content-Type": "multipart/form-data",
       }});
      dispatch(applicationSlice.actions.successForPostApplication(response.data.message));
@@ -104,7 +104,7 @@ export const postApplication=(data,jobId)=>async(dispatch)=>{
 export const fetchMyApplications=()=>async(dispatch)=>{
     dispatch(applicationSlice.actions.requestForMyApplications());
     try{
-        const response=await axios.get("http://localhost:4000/application/job-seekerget",{withCredentials: true});
+        const response=await axios.get("https://easyjob-vcsa.onrender.com/application/job-seekerget",{withCredentials: true});
         dispatch(applicationSlice.actions.successForMyApplications(response.data.applications));
         dispatch(applicationSlice.actions.clearAllError());
     }catch(error){
@@ -117,7 +117,7 @@ export const fetchMyApplications=()=>async(dispatch)=>{
 export const fetchEmployerApplications=()=>async(dispatch)=>{
     dispatch(applicationSlice.actions.requestForAllApplications());
     try{
-        const response=await axios.get("http://localhost:4000/application/employerget",{withCredentials: true});
+        const response=await axios.get("https://easyjob-vcsa.onrender.com/application/employerget",{withCredentials: true});
         dispatch(applicationSlice.actions.successForAllApplications(response.data.applications));
         dispatch(applicationSlice.actions.clearAllError());
     }catch(error){
@@ -139,7 +139,7 @@ export const deleteApplication = (id) => async (dispatch) => {
   dispatch(applicationSlice.actions.requestForDeleteApplication());
   try {
     const response = await axios.delete(
-      `http://localhost:4000/application/delete/${id}`,
+      `https://easyjob-vcsa.onrender.com/application/delete/${id}`,
       { withCredentials: true }
     );
     dispatch(
